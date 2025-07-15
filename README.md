@@ -1,5 +1,5 @@
 # portfolio
-I am learning Python from a video which is 12 hours long. Created this website, to show the progress percentage of completion video.
+I am learning Python from a video which is 12 hours long. Created this website, to show the progress percentage of video completion.
 
 web-based progress tracking application
 
