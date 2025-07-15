@@ -1,18 +1,209 @@
-Sure, here's the contents for the file: /progress-tracker/progress-tracker/src/index.html
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loki Python</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #FFDAB9;  /* warm peach */
+            font-family: Arial, sans-serif;
+            background-image: url("data:image/png;base64,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");
+        }
+        .title {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+        }
+        .timestamp-input {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+        .timestamp-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .timestamp-input label {
+            color: #462711;
+            font-size: 16px;
+        }
+        .timestamp-input input {
+            padding: 8px;
+            font-size: 16px;
+            width: 40px;
+            font-weight: 800;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(70, 39, 17, 0.2);
+            -moz-appearance: textfield;
+        }
+        .timestamp-input input::placeholder {
+            font-weight: normal;
+            color: rgba(70, 39, 17, 0.6);
+        }
+        .timestamp-input input::-webkit-outer-spin-button,
+        .timestamp-input input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 40%;
+            left: 0;
+            width: calc(100% - 80px);
+            margin: 0 40px;
+            transform: translateY(-50%);
+        }
+        .progress {
+            font-size: 144px;
+            color: #462711;  /* chocolate */
+            transition: transform 0.5s ease;
+            position: absolute;
+            transform-origin: left center;
+            user-select: none;
+            pointer-events: none;
+            margin-bottom: 40px;
+            white-space: nowrap;
+        }
+        .scale-container {
+            position: fixed;
+            bottom: 48%;
+            left: 0;
+            width: 100%;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        .scale {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: #462711;
+        }
+        .scale-marks {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1px;
+            top: -4px;
+        }
+        .scale-mark {
+            width: 1px;
+            height: 5px;
+            background: #462711;
+            transform: translateY(-50%);
+        }
+        .scale-mark.major {
+            height: 10px;
+        }
+        .scale-labels {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            color: #462711;
+            font-size: 12px;
+        }
+        @keyframes slither {
+            0% { transform: translateX(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) rotate(360deg); }
+        }
+
+        .python-animation {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            height: 40px;
+        }
+    </style>
+    <script>
+
+        function updateProgress() {
+            const timestamp = document.getElementById('timestamp').value;
+            if (timestamp) {
+                const percentage = Math.min(100, Math.round((timestamp / 720) * 100));
+                const progress = document.querySelector('.progress');
+                progress.innerHTML = percentage + '<span style="font-size: 50%">%</span>';
+                const scaleWidth = document.querySelector('.scale').offsetWidth;
+                const progressWidth = progress.offsetWidth;
+                const translateX = (percentage / 100) * (scaleWidth - progressWidth);
+                progress.style.transform = `translateX(${translateX}px)`;
+            }
+        }
+    </script>
 </head>
 <body>
-    <h1>Loki Python</h1>
-    <div class="progress-container">
-        <span class="progress-percentage">0%</span>
+    <div class="title">Lokiverse</div>
+    <div class="timestamp-input">
+        <label for="timestamp">Time:</label>
+        <input type="number" id="timestamp" placeholder="Time" onchange="updateProgress()">
+        <label>min</label>
     </div>
-    <script src="src/js/main.js"></script>
+    <div class="progress-container">
+        <div class="progress">0<span style="font-size: 50%">%</span></div>
+    </div>
+    <div class="scale-container">
+        <div class="scale">
+            <div class="scale-marks">
+                <div class="scale-mark major"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark major"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark major"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark major"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark major"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark"></div>
+                <div class="scale-mark major"></div>
+            </div>
+            <div class="scale-labels">
+                <span>0%</span>
+                <span>20%</span>
+                <span>40%</span>
+                <span>60%</span>
+                <span>80%</span>
+                <span>100%</span>
+            </div>
+        </div>
+    </div>
+    <div style="position: fixed; bottom: 80px; width: 100%; text-align: center; color: #462711; font-size: 24px;">Python Progress</div>
+    <svg class="python-animation" viewBox="0 0 100 20" width="200" height="40">
+        <path d="M 10,10 Q 20,5 30,10 T 50,10 T 70,10 T 90,10" 
+              fill="none" 
+              stroke="#462711" 
+              stroke-width="4" 
+              stroke-linecap="round">
+            <animate attributeName="d" 
+                     dur="2s" 
+                     repeatCount="indefinite"
+                     values="M 10,10 Q 20,5 30,10 T 50,10 T 70,10 T 90,10;
+                             M 10,10 Q 20,15 30,10 T 50,10 T 70,10 T 90,10;
+                             M 10,10 Q 20,5 30,10 T 50,10 T 70,10 T 90,10"/>
+        </path>
+    </svg>
 </body>
 </html>
