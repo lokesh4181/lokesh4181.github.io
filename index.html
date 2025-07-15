@@ -138,6 +138,11 @@
                 progress.style.transform = `translateX(${translateX}px)`;
             }
         }
+
+        window.onload = function() {
+            document.getElementById('timestamp').value = 210; // Default value for testing
+            updateProgress(); // Initial update on load
+        }
     </script>
 </head>
 <body>
